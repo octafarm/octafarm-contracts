@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract OTCF is ERC20, Ownable {
+contract OCTF is ERC20, Ownable {
     using SafeERC20 for IERC20;
 
     constructor(
@@ -18,7 +18,7 @@ contract OTCF is ERC20, Ownable {
     } 
 
     function clearTokens(address _token, uint256 _amount) external onlyOwner {
-        require(_token != address(this), "Cannot clear same tokens as OTCF");
+        require(_token != address(this), "Cannot clear same tokens as OCTF");
         IERC20(_token).safeTransfer(msg.sender, _amount);
     }
 }
